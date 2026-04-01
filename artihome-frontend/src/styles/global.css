@@ -1,0 +1,88 @@
+/* ── TOKENS ── */
+:root {
+  --bg:      #09090A;
+  --surface: #111113;
+  --border:  #1E1E22;
+  --gold:    #C8A96A;
+  --glow:    #E0C07C;
+  --dim:     rgba(200,169,106,.18);
+  --cream:   #F0E8D5;
+  --text:    #9A9084;
+  --muted:   #5A544C;
+  --green:   #3EB575;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'Outfit', sans-serif;
+}
+
+/* ── RESET ── */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  letter-spacing:.012em;
+}
+img { display:block; max-width:100%; }
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; font-family:var(--sans); }
+
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:999; pointer-events:none;
+  opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px 160px;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--gold); border-radius:2px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp   { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+@keyframes shimmer  { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes floatY   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes slideIn  { from{opacity:0;transform:translateX(-16px)} to{opacity:1;transform:translateX(0)} }
+
+/* ── TYPOGRAPHY HELPERS ── */
+.serif { font-family:var(--serif); }
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--glow) 40%, var(--gold) 60%, var(--glow) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmer 3.8s linear infinite;
+}
+
+/* ── CORE FORM AND BTN ── */
+.btn-primary {
+  background:var(--gold); color:#0A0900;
+  border:none; padding:.88rem 1.9rem;
+  border-radius:7px; font-size:.92rem; font-weight:600;
+  transition:all .2s; letter-spacing:.02em;
+  display:inline-flex; align-items:center; gap:.5rem; justify-content:center;
+}
+.btn-primary:hover { background:var(--glow); transform:translateY(-2px); }
+.btn-ghost {
+  background:transparent; color:var(--gold);
+  border:1.5px solid rgba(200,169,106,.3);
+  padding:.88rem 1.9rem; border-radius:7px;
+  font-size:.92rem; font-weight:500;
+  transition:all .2s; display:inline-flex; align-items:center; gap:.5rem; justify-content:center;
+}
+.btn-ghost:hover { border-color:var(--gold); transform:translateY(-2px); }
+
+/* SCROLL REVEAL CLASS */
+.reveal {
+  opacity:0; transform:translateY(22px);
+  transition:opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }

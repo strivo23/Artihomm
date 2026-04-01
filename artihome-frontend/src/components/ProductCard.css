@@ -1,0 +1,100 @@
+
+.product-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px; overflow:hidden;
+  transition:all .25s; cursor:pointer;
+  display:flex; flex-direction:column;
+}
+.product-card:hover {
+  border-color:rgba(200,169,106,.4);
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(0,0,0,.45);
+}
+.product-img {
+  height:180px; position:relative; overflow:hidden;
+  background:var(--border);
+}
+.product-img img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .4s;
+}
+.product-card:hover .product-img img { transform:scale(1.06); }
+.product-img-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.22) 0%, transparent 45%, rgba(0,0,0,.15) 100%);
+}
+.product-tag {
+  position:absolute; top:10px; left:10px; z-index:2;
+  background:rgba(200,169,106,.15);
+  border:1px solid rgba(200,169,106,.35);
+  color:var(--gold); font-size:.62rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:.26rem .7rem; border-radius:12px;
+}
+.product-body { padding:1.1rem 1.15rem; flex:1; display:flex; flex-direction:column; }
+.product-name {
+  font-family:var(--serif);
+  font-size:1.05rem; font-weight:600; color:var(--cream);
+  line-height:1.25; margin-bottom:.3rem;
+}
+.product-sub { font-size:.76rem; color:var(--muted); line-height:1.55; flex:1; }
+.product-prices {
+  display:flex; align-items:baseline; gap:.5rem;
+  margin-top:.85rem; flex-wrap:wrap;
+}
+.price-ah {
+  font-family:var(--serif);
+  font-size:1.22rem; font-weight:700; color:var(--gold);
+}
+.price-mkt {
+  font-size:.75rem; color:var(--muted);
+  text-decoration:line-through;
+}
+.price-save {
+  font-size:.72rem; font-weight:700; color:var(--green);
+  margin-left:auto;
+}
+
+/* ── CARD ACTIONS ── */
+.product-footer {
+  display:flex; flex-direction:column;
+  gap:.75rem; margin-top:.85rem;
+}
+.card-actions {
+  display:grid; grid-template-columns:1fr 1fr; gap:.5rem;
+}
+.btn-card-waitlist {
+  display:inline-flex; align-items:center; justify-content:center; gap:.35rem;
+  background:rgba(200,169,106,.1);
+  border:1.5px solid rgba(200,169,106,.3);
+  border-radius:7px; padding:.52rem .6rem;
+  font-size:.75rem; font-weight:600; color:var(--gold);
+  font-family:var(--sans); cursor:pointer;
+  transition:all .22s; white-space:nowrap;
+}
+.btn-card-waitlist:hover {
+  background:rgba(200,169,106,.18);
+  border-color:var(--gold);
+}
+.btn-pledge {
+  display:inline-flex; align-items:center; justify-content:center; gap:.35rem;
+  background:transparent;
+  border:1.5px solid var(--border);
+  border-radius:7px; padding:.52rem .6rem;
+  font-size:.75rem; font-weight:500; color:var(--muted);
+  font-family:var(--sans); cursor:pointer;
+  transition:all .22s; white-space:nowrap;
+}
+.btn-pledge:hover { border-color:rgba(200,169,106,.35); color:var(--text); }
+.btn-pledge.pledged {
+  background:rgba(62,181,117,.08);
+  border-color:rgba(62,181,117,.35);
+  color:var(--green);
+  font-weight:600;
+}
+.pledge-social {
+  font-size:.7rem; color:var(--muted); text-align:center;
+  min-height:.9rem; transition:opacity .3s;
+}
+.pledge-social.has-count { color:var(--gold); }
