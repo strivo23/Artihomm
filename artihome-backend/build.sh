@@ -2,15 +2,15 @@
 set -e
 
 echo "--- Installing dependencies ---"
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 echo "--- Collecting static files ---"
-python manage.py collectstatic --no-input
+python3 manage.py collectstatic --no-input
 
 echo "--- Running migrations ---"
-python manage.py migrate
+python3 manage.py migrate
 
 echo "--- Seeding products ---"
-python manage.py seed_products || echo "Warning: Product seeding failed, but continuing..."
+python3 manage.py seed_products || echo "Warning: Product seeding failed, but continuing..."
 
 echo "--- Build complete ---"
