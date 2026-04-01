@@ -3,7 +3,7 @@ import os
 import dj_database_url
 
 SECRET_KEY    = os.environ['SECRET_KEY']
-DEBUG         = True
+DEBUG         = False
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 DATABASES = {
