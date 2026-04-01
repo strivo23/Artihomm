@@ -10,6 +10,9 @@ python3 manage.py collectstatic --no-input
 echo "--- Running migrations ---"
 python3 manage.py migrate
 
+echo "--- Creating superuser ---"
+python3 manage.py create_superuser
+
 echo "--- Seeding products ---"
 python3 manage.py seed_products || echo "Warning: Product seeding failed, but continuing..."
 
