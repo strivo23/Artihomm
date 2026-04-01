@@ -22,6 +22,6 @@ class Product(models.Model):
 
     @property
     def savings_pct(self):
-        if self.ah_price and self.market_price:
+        if self.ah_price and self.market_price and self.market_price > 0:
             return round((1 - float(self.ah_price)/float(self.market_price)) * 100)
         return 0
