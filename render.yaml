@@ -3,8 +3,8 @@ services:
     name: artihome-backend
     env: python
     plan: free
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn artihome_project.wsgi:application --bind 0.0.0.0:$PORT"
+    buildCommand: "cd artihome-backend && ./build.sh"
+    startCommand: "cd artihome-backend && gunicorn artihome_project.wsgi:application --bind 0.0.0.0:$PORT"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: artihome_project.settings.prod
