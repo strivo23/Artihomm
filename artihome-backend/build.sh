@@ -8,7 +8,7 @@ echo "--- Collecting static files ---"
 python3 manage.py collectstatic --no-input
 
 echo "--- Making migrations ---"
-python3 manage.py makemigrations || true
+python3 manage.py makemigrations --noinput || true
 
 echo "--- Running migrations ---"
 python3 manage.py migrate
