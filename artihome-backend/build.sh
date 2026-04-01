@@ -7,6 +7,9 @@ pip3 install -r requirements.txt
 echo "--- Collecting static files ---"
 python3 manage.py collectstatic --no-input
 
+echo "--- Making migrations ---"
+python3 manage.py makemigrations || true
+
 echo "--- Running migrations ---"
 python3 manage.py migrate
 
