@@ -6,7 +6,7 @@ load_dotenv()
 
 SECRET_KEY    = os.getenv('SECRET_KEY', 'unsafe-dev-secret-do-not-use-in-production')
 DEBUG         = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver']
 
 DATABASES = {
     'default': {

@@ -7,11 +7,11 @@ pip3 install -r requirements.txt
 echo "--- Collecting static files ---"
 python3 manage.py collectstatic --no-input
 
-echo "--- Making migrations ---"
-python3 manage.py makemigrations --noinput || true
+echo "--- Checking migrations (must be committed) ---"
+python3 manage.py makemigrations --check --dry-run
 
 echo "--- Running migrations ---"
-python3 manage.py migrate
+python3 manage.py migrate --noinput
 
 echo "--- Creating superuser ---"
 python3 manage.py create_superuser
