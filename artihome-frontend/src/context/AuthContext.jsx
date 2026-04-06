@@ -35,7 +35,9 @@ export const AuthProvider = ({ children }) => {
     try {
       await apiLogout();
     } catch(e) {
-      console.log('Logout API failed, clearing local storage anyway');
+      if (import.meta.env.DEV) {
+        console.error('Logout API failed, clearing local storage anyway', e);
+      }
     }
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');

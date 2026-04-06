@@ -9,15 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="error-log" style="position:fixed; z-index:9999; background:red; color:white; top:0; left:0; padding:10px;"></div>
-    <script>
-      window.onerror = function(message, source, lineno, colno, error) {
-        document.getElementById('error-log').innerHTML += `<p>${message} at ${source}:${lineno}:${colno}</p>`;
-      };
-      window.addEventListener("unhandledrejection", function(event) {
-        document.getElementById('error-log').innerHTML += `<p>${event.reason}</p>`;
-      });
-    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

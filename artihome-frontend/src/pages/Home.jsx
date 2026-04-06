@@ -28,7 +28,9 @@ function Home() {
       setProducts(res.data);
       setLoading(false);
     }).catch(err => {
-      console.error(err);
+      if (import.meta.env.DEV) {
+        console.error(err);
+      }
       setLoading(false);
     });
   }, [activeTab]);

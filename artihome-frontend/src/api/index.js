@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const baseURL = import.meta.env.VITE_API_URL || '/api';
+const baseURL = import.meta.env.VITE_API_URL;
+
+if (!baseURL) {
+  throw new Error('VITE_API_URL is not configured. Set it in your production environment and local .env file.');
+}
 
 const API = axios.create({
   baseURL
