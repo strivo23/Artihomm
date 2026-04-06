@@ -6,6 +6,8 @@ services:
     buildCommand: "cd artihome-backend && ./build.sh"
     startCommand: "cd artihome-backend && gunicorn artihome_project.wsgi:application --bind 0.0.0.0:$PORT"
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
       - key: DJANGO_SETTINGS_MODULE
         value: artihome_project.settings.prod
       - key: SECRET_KEY
