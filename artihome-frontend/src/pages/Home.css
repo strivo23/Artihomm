@@ -42,10 +42,47 @@ section { padding:5rem 5vw; border-top:1px solid var(--border); }
 .cat-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin:1.8rem 0 2rem; }
 .cat-tab {
   background:transparent; border:1px solid var(--border); color:var(--muted);
-  padding:.42rem 1rem; border-radius:20px; font-size:.78rem; font-weight:500; transition:all .2s;
+  padding:.48rem 1rem; border-radius:999px; font-size:.78rem; font-weight:500; transition:all .2s;
 }
 .cat-tab.active, .cat-tab:hover { background:rgba(200,169,106,.1); border-color:rgba(200,169,106,.4); color:var(--cream); }
-.products-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1.2rem; }
+.products-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+  gap:1.4rem;
+  max-width:1440px;
+  margin:0 auto;
+}
+
+#catalogue .reveal,
+#catalogue .cat-tabs,
+#catalogue .products-grid {
+  max-width:1440px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#catalogue .section-title,
+#catalogue .section-label {
+  max-width:1440px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#catalogue {
+  background:
+    radial-gradient(ellipse 70% 30% at 50% 0%, rgba(200,169,106,.08) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.01), transparent 18%),
+    var(--bg);
+}
+
+#catalogue::before {
+  content:'';
+  display:block;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(200,169,106,.2), transparent);
+  margin-bottom:5rem;
+  opacity:.7;
+}
 
 /* ── HOW IT WORKS & WHY US ── */
 #how, #why { background:var(--surface); }
