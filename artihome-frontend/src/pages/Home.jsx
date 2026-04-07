@@ -80,7 +80,7 @@ function Home() {
         <div className="hero-grid-bg"></div>
         <div className="hero-vignette"></div>
         <div style={{position:'relative'}}>
-          <div className="hero-badge"><span className="dot"></span>DEMAND VALIDATION · PHASE 1</div>
+          
           <h1 className="hero-h1">Premium sofas.<br/><span className="shimmer-text">Half the price.</span></h1>
           <div className="gold-rule"></div>
           <p className="hero-sub-text">
