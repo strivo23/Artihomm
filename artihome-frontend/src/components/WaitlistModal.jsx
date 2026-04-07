@@ -17,7 +17,7 @@ function WaitlistModal({ product, onClose }) {
     setLoading(true);
     setError(null);
     try {
-      await joinWaitlist({ ...form, product: product.id });
+      await joinWaitlist(product.id, form);
       setSuccess(true);
     } catch (err) {
       if (err.response?.data?.error) {

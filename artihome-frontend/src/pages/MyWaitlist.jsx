@@ -3,6 +3,24 @@ import { Link } from 'react-router-dom';
 import { getMyWaitlist } from '../api';
 import './Home.css'; // Reuse container styles
 
+const API_ORIGIN = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api').replace(/\/api\/?$/, '');
+
+function resolveImageSrc(imageUrl) {
+  if (!imageUrl) {
+    return 'https://via.placeholder.com/600';
+  }
+
+  if (/^https?:\/\//i.test(imageUrl) || imageUrl.startsWith('data:')) {
+    return imageUrl;
+  }
+
+  if (imageUrl.startsWith('/')) {
+    return `${API_ORIGIN}${imageUrl}`;
+  }
+
+  return `${API_ORIGIN}/${imageUrl}`;
+}
+
 function MyWaitlist() {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,14 +54,20 @@ function MyWaitlist() {
             {entries.map(entry => (
               <div key={entry.id} className="product-card" style={{border: '1px solid rgba(62,181,117,.3)'}}>
                 <div className="product-img">
-                  <img src={entry.product.image} alt={entry.product.name} />
+                  <img
+                    src={resolveImageSrc(entry.product.image_url)}
+                    alt={entry.product.name}
+                    onError={(event) => {
+                      event.currentTarget.src = 'https://via.placeholder.com/600';
+                    }}
+                  />
                   <span className="product-tag" style={{background:'rgba(62,181,117,.15)', color:'var(--green)', borderColor:'var(--green)'}}>Waitlisted</span>
                 </div>
                 <div className="product-body">
                   <p className="product-name">{entry.product.name}</p>
-                  <p className="product-sub" style={{textTransform:'uppercase', fontSize:'.7rem'}}>{entry.product.category}</p>
+                  <p className="product-sub" style={{textTransform:'uppercase', fontSize:'.7rem'}}>{entry.product.category_name || entry.product.category}</p>
                   <div className="product-prices">
-                    <span className="price-ah">Rs. {entry.product.ah_price?.toLocaleString()}</span>
+                    <span className="price-ah">Rs. {(entry.product.estimated_price || 0).toLocaleString()}</span>
                   </div>
                   {entry.requirements && (
                     <div style={{marginTop:'.8rem', fontSize:'.8rem', color:'var(--text)', background:'var(--bg)', padding:'.5rem', borderRadius:'6px'}}>

@@ -48,12 +48,12 @@ function Home() {
         }
       });
     }, { threshold: .12 });
-    
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     if (barsRef.current) observer.observe(barsRef.current);
 
     return () => observer.disconnect();
-  }, []);
+  }, [products.length]);
 
   const handleVote = (idx) => {
     if (voted) return;

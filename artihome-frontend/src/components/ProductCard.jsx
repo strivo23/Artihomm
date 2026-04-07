@@ -4,13 +4,31 @@ import { AuthContext } from '../context/AuthContext';
 import { togglePledge as apiTogglePledge } from '../api';
 import './ProductCard.css';
 
+const API_ORIGIN = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api').replace(/\/api\/?$/, '');
+
+function resolveImageSrc(imageUrl) {
+  if (!imageUrl) {
+    return 'https://via.placeholder.com/600';
+  }
+
+  if (/^https?:\/\//i.test(imageUrl) || imageUrl.startsWith('data:')) {
+    return imageUrl;
+  }
+
+  if (imageUrl.startsWith('/')) {
+    return `${API_ORIGIN}${imageUrl}`;
+  }
+
+  return `${API_ORIGIN}/${imageUrl}`;
+}
+
 function ProductCard({ product, index, onJoinWaitlist }) {
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const [pledged, setPledged] = useState(product.user_pledged || false);
-  const [pledgeCount, setPledgeCount] = useState(product.pledge_count || 0);
+  const [pledgeCount, setPledgeCount] = useState(product.pledge_count ?? product.waitlist_count ?? 0);
 
   const handleJoin = () => {
     if (!isLoggedIn) {
@@ -51,7 +69,13 @@ function ProductCard({ product, index, onJoinWaitlist }) {
   return (
     <div className="product-card reveal" style={{ transitionDelay: `${(index % 3) * 0.1}s` }}>
       <div className="product-img-box">
-        <img src={product.image || product.image_url || 'https://via.placeholder.com/600'} alt={product.name} />
+        <img
+          src={resolveImageSrc(product.image || product.image_url)}
+          alt={product.name}
+          onError={(event) => {
+            event.currentTarget.src = 'https://via.placeholder.com/600';
+          }}
+        />
         <div className="product-img-overlay" />
         {product.tag && <span className="product-tag">{product.tag}</span>}
       </div>

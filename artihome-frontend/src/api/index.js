@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-const baseURL = import.meta.env.VITE_API_URL;
-
-if (!baseURL) {
-  throw new Error('VITE_API_URL is not configured. Set it in your production environment and local .env file.');
-}
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 const API = axios.create({
   baseURL
@@ -51,9 +47,9 @@ export const login         = (data)       => API.post('/accounts/login/', data);
 export const logout        = ()           => API.post('/accounts/logout/');
 export const getProducts   = (category)   => API.get('/products/', { params: category && category !== 'All' ? { category } : {} });
 export const getProduct    = (id)         => API.get(`/products/${id}/`);
-export const joinWaitlist  = (data)       => API.post('/waitlist/', data);
-export const togglePledge  = (productId)  => API.post(`/waitlist/pledge/${productId}/`);
-export const getMyWaitlist = ()           => API.get('/waitlist/mine/');
-export const getPledgeCount= (productId)  => API.get(`/waitlist/count/${productId}/`);
+export const joinWaitlist  = (productId, data) => API.post(`/waitlist/join/${productId}/`, data);
+export const togglePledge  = (productId)       => API.post(`/waitlist/pledge/${productId}/`);
+export const getMyWaitlist = ()                => API.get('/waitlist/my/');
+export const getPledgeCount= (productId)       => API.get(`/waitlist/count/${productId}/`);
 
 export default API;
