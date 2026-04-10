@@ -89,8 +89,8 @@ function ProductCard({ product, index, onJoinWaitlist }) {
             <span className="price-save">-{savePct}%</span>
           </div>
           <div className="card-actions">
-            <button className="btn-card-waitlist" onClick={handleJoin}>Join Waitlist</button>
-            <button className={`btn-pledge ${pledged ? 'pledged' : ''}`} onClick={handlePledge}>
+            <button type="button" className="btn-card-waitlist" onClick={handleJoin}>Join Waitlist</button>
+            <button type="button" className={`btn-pledge ${pledged ? 'pledged' : ''}`} onClick={handlePledge}>
               {pledged ? "✓ I'll order this" : "I'll order this"}
             </button>
           </div>
