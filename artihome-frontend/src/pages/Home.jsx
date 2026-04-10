@@ -181,7 +181,7 @@ function Home() {
         </div>
         <div style={{maxWidth:'480px', marginTop:'2rem'}}>
           {!voted ? (
-            <div className="poll-options reveal">
+            <div className="poll-options">
               {pollLabels.map((lbl, idx) => (
                 <div className="poll-option" key={idx} onClick={() => handleVote(idx)}>
                   <div className="poll-radio"><div className="poll-radio-dot"></div></div>
@@ -190,7 +190,7 @@ function Home() {
               ))}
             </div>
           ) : (
-            <div className="reveal">
+            <div>
               <div style={{textAlign:'center', marginBottom:'2.4rem'}}>
                 <div style={{fontSize:'3rem', marginBottom:'0.8rem'}}>🙏</div>
                 <p className="section-title" style={{fontSize:'1.8rem', marginBottom:'0.5rem'}}>Thank you for voting!</p>
