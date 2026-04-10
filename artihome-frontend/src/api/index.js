@@ -49,7 +49,6 @@ export const getProducts   = (category)   => API.get('/products/', { params: cat
 export const getProduct    = (id)         => API.get(`/products/${id}/`);
 export const joinWaitlist  = (productId, data) => API.post(`/waitlist/join/${productId}/`, data);
 export const togglePledge  = (productId)  => API.post(`/waitlist/pledge/${productId}/`);
-export const togglePledge  = (productId)       => API.post(`/waitlist/pledge/${productId}/`);
 export const getMyWaitlist = ()                => API.get('/waitlist/my/');
 export const getPledgeCount= (productId)       => API.get(`/waitlist/count/${productId}/`);
 
