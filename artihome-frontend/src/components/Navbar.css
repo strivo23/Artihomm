@@ -14,8 +14,18 @@ nav.scrolled {
   font-size:1.4rem; font-weight:600;
   color:var(--cream); background:none; border:none;
   letter-spacing:-.01em;
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
 }
-.nav-logo span { color:var(--gold); }
+.nav-logo span { color:var(--cream); }
+.nav-logo span span { color:var(--gold); }
+.nav-logo-img {
+  height:1.6rem;
+  width:auto;
+  display:block;
+  filter: drop-shadow(0 0 0.5px rgba(201, 168, 76, 0.8));
+}
 .nav-cta {
   background:var(--gold); color:#0A0900;
   border:none; padding:.52rem 1.25rem;

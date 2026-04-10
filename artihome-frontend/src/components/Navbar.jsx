@@ -22,7 +22,8 @@ function Navbar() {
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <Link to="/" className="nav-logo">
-        Arti<span>Home</span>
+        <img src="/logo-sofa.svg" alt="ArtiHome" className="nav-logo-img" />
+        <span>Arti<span>Home</span></span>
       </Link>
       
       <div className="nav-links">
