@@ -48,6 +48,7 @@ export const logout        = ()           => API.post('/accounts/logout/');
 export const getProducts   = (category)   => API.get('/products/', { params: category && category !== 'All' ? { category: category.toLowerCase() } : {} });
 export const getProduct    = (id)         => API.get(`/products/${id}/`);
 export const joinWaitlist  = (productId, data) => API.post(`/waitlist/join/${productId}/`, data);
+export const togglePledge  = (productId)  => API.post(`/waitlist/toggle-pledge/${productId}/`);
 export const togglePledge  = (productId)       => API.post(`/waitlist/pledge/${productId}/`);
 export const getMyWaitlist = ()                => API.get('/waitlist/my/');
 export const getPledgeCount= (productId)       => API.get(`/waitlist/count/${productId}/`);
