@@ -45,7 +45,7 @@ API.interceptors.response.use(
 export const register      = (data)       => API.post('/accounts/register/', data);
 export const login         = (data)       => API.post('/accounts/login/', data);
 export const logout        = ()           => API.post('/accounts/logout/');
-export const getProducts   = (category)   => API.get('/products/', { params: category && category !== 'All' ? { category } : {} });
+export const getProducts   = (category)   => API.get('/products/', { params: category && category !== 'All' ? { category: category.toLowerCase() } : {} });
 export const getProduct    = (id)         => API.get(`/products/${id}/`);
 export const joinWaitlist  = (productId, data) => API.post(`/waitlist/join/${productId}/`, data);
 export const togglePledge  = (productId)       => API.post(`/waitlist/pledge/${productId}/`);
