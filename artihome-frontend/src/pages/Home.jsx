@@ -191,7 +191,11 @@ function Home() {
             </div>
           ) : (
             <div className="reveal">
-              <p style={{fontSize:'.82rem',color:'var(--muted)',marginBottom:'1.2rem'}}>Based on {totalVotes} responses</p>
+              <div style={{textAlign:'center', marginBottom:'2.4rem'}}>
+                <div style={{fontSize:'3rem', marginBottom:'0.8rem'}}>🙏</div>
+                <p className="section-title" style={{fontSize:'1.8rem', marginBottom:'0.5rem'}}>Thank you for voting!</p>
+                <p style={{fontSize:'.82rem',color:'var(--muted)'}}>Here's what {totalVotes} people think:</p>
+              </div>
               {pollVotes.map((v,i) => {
                 const pct = Math.round(((v + (i===0?1:0))/totalVotes)*100);
                 return (
@@ -201,9 +205,6 @@ function Home() {
                   </div>
                 );
               })}
-              <div style={{textAlign:'center', marginTop:'2rem'}}>
-                <div style={{fontSize:'2.5rem'}}>🙏</div><p className="section-title" style={{fontSize:'1.5rem'}}>Thank you!</p>
-              </div>
             </div>
           )}
         </div>
