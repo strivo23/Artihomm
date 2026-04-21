@@ -228,7 +228,8 @@ function Home() {
         <p className="footer-logo">Arti<span>Home</span></p>
         <p className="footer-text">© 2026 ArtiHome. Direct-to-home furniture.</p>
         <div className="footer-socials">
-          <div className="footer-social">IG</div><div className="footer-social">FB</div><div className="footer-social">WA</div>
+          <a href="https://www.instagram.com/artihome.in?igsh=MTBnd2l4aWE4MzVxdA==" target="_blank" rel="noopener noreferrer" className="footer-social">IG</a>
+          <a href="https://wa.me/917989287158" target="_blank" rel="noopener noreferrer" className="footer-social">WA</a>
         </div>
       </footer>
 

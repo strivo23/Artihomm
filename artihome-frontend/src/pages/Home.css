@@ -140,7 +140,7 @@ footer { border-top:1px solid var(--border); padding:2.5rem 5vw; display:flex; a
 .footer-logo span { color:var(--gold); }
 .footer-text { font-size:.78rem; color:var(--muted); }
 .footer-socials { display:flex; gap:.75rem; }
-.footer-social { width:34px; height:34px; border-radius:8px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; background:transparent; color:var(--muted); transition:all .2s; }
+.footer-social { width:34px; height:34px; border-radius:8px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; background:transparent; color:var(--muted); transition:all .2s; text-decoration:none; }
 .footer-social:hover { border-color:rgba(200,169,106,.4); color:var(--gold); }
 
 @media(max-width:600px) { footer { flex-direction:column; text-align:center; } }
