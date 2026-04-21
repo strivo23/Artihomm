@@ -142,5 +142,10 @@ footer { border-top:1px solid var(--border); padding:2.5rem 5vw; display:flex; a
 .footer-socials { display:flex; gap:.75rem; }
 .footer-social { width:34px; height:34px; border-radius:8px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; background:transparent; color:var(--muted); transition:all .2s; text-decoration:none; }
 .footer-social:hover { border-color:rgba(200,169,106,.4); color:var(--gold); }
+.footer-social svg { width:20px; height:20px; }
+.footer-social.instagram { background:linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%); color:white; border:none; }
+.footer-social.instagram:hover { transform:scale(1.1); }
+.footer-social.whatsapp { background:#25D366; color:white; border:none; }
+.footer-social.whatsapp:hover { background:#20BA5F; transform:scale(1.1); }
 
 @media(max-width:600px) { footer { flex-direction:column; text-align:center; } }
